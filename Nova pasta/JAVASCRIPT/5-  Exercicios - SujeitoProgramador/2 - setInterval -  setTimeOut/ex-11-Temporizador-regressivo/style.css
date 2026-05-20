@@ -1,0 +1,18 @@
+.contagemRegressiva {
+    display: none;
+
+    &.show {
+        display: flex;
+        background-color: blue;
+    }
+}
+
+.contagemRegressiva {
+    width: 300px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+

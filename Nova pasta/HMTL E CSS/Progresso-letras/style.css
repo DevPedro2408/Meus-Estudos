@@ -1,0 +1,25 @@
+.progress {
+    height: 20px;
+    width: 200px;
+}
+
+.progress {
+    width: 300px;
+    height: 18px;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden; /* importante para o border-radius no WebKit */
+    background: transparent; /* fallback */
+}
+
+/* track (fundo) - WebKit */
+.progress::-webkit-progress-bar {
+    background: #e6e6e6;
+}
+
+/* value (parte preenchida) - WebKit (Chrome, Edge, Safari) */
+.progress::-webkit-progress-value {
+    background: green;
+    transition: 0.5; 
+}
+

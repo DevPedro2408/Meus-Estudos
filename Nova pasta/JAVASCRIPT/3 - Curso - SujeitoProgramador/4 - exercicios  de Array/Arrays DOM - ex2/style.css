@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    width: 250px;
+}
+
+#btn {
+    width: 100px;
+}
+
+#resul {
+    list-style: none;
+}

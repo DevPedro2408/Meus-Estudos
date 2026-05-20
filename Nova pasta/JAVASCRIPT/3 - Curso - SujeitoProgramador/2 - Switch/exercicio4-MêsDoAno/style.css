@@ -1,0 +1,22 @@
+label {
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    background-color: white;
+    width: 100px;
+    text-align: center;
+    transition: transform 0.5s ease, color 0.5s ease;
+}
+
+input {
+    padding: 10px 0 10px 10px;
+}
+
+input:focus + label {
+    transform: translateY(-18px);
+    color: blue;
+}
+
+input:focus {
+    color: blue;
+}

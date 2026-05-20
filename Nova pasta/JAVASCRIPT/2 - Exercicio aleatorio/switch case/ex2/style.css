@@ -1,0 +1,130 @@
+.containerRegistro {
+    height: 70dvb;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.registroAluno {
+    background-color: rgba(6, 207, 207, 0.548);
+    box-shadow: 1px 2px 15px rgb(184, 183, 183);
+    padding: 40px 70px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    line-height: 25px;
+}
+
+div label {
+    display: flex;
+    width: max-content;
+}
+
+.inputs {
+    border-radius: 5px;
+    border: none;
+    transition: 0.500s all;
+    padding: 4px 0 4px 10px;
+}
+
+.inputs:hover {
+    box-shadow: 1px 1px 10px rgb(255, 255, 255);
+}
+
+.botoes {
+    background-color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 0.500s;
+}
+
+.botoes:hover {
+    transform: translateX(7px);
+}
+
+.nome {
+    
+}
+
+.sala {
+    display: none;
+}
+
+.nota {
+    display: none;
+}
+
+#resul {
+}
+
+.resultado {
+    width: max-content;
+    padding: 4px 15px;
+    text-align: center;
+    margin: 10px auto 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+    transform: matrix3d(1.0);
+}
+
+.resulReprovado {
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+.resulExame {
+    background-color: yellow;
+}
+
+.resulAprovado {
+    background-color: green;
+}
+
+.containerLista {
+    display: none;
+    flex-direction: column;
+}
+
+li {
+    list-style: none;
+}
+
+.listaAlunos {
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
+    width: 60%;
+}
+
+.listaAlunos li:first-child {
+    width: 200px;
+}
+
+.listaAlunos li:nth-child(2) {
+    width: 180%;
+}
+
+.alunos, .objetivosLista {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.objetivosLista {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.alunos {
+    width: 100%;
+}

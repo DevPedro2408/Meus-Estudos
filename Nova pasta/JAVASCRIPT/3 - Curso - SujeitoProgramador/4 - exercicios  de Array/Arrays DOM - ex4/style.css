@@ -1,0 +1,11 @@
+.listaNum {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+#resul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}

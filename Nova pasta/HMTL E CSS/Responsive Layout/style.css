@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.item {
+    width: 150px;   
+    height: 150px;
+    background-color: red;
+    flex-basis: 200px;
+}
+
+a {
+    text-decoration: none;
+    color: #336699;
+}
