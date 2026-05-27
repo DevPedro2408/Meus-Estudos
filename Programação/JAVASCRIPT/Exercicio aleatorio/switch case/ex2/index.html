@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <main class="containerRegistro">
+        <section class="registroAluno">
+            <div class="nome">
+                <label for="inputNome">Bom dia! qual seu nome?</label>
+                <input type="text" id="inputNome" class="inputs">
+                <button id="btnNome" class="botoes">Prosseguir</button>
+            </div>
+            
+            <div class="sala">
+                <div>
+                    <label for="inputSala" id="dialogoSala"></label>
+                    <input type="number" id="inputSala" class="inputs">
+                    <button id="btnSala" class="botoes">Prosseguir</button>
+                </div>
+            </div>
+
+            <div class="nota">
+                <div>
+                    <label for="numNota">Qual foi sua nota?</label>
+                    <input type="number" id="numNota" class="inputs">
+                    <button id="btnNota" class="botoes">Resultado</button>
+                    <div id="resul"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="containerLista">
+        <ul class="listaAlunos">
+            <li class="objetivosLista"></li>
+            <li class="objetivosLista">Nome</li>
+            <li class="objetivosLista">Sala</li>
+            <li class="objetivosLista">Nota</li>
+            <li class="objetivosLista">Resultado</li>
+        </ul>
+    </section>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
