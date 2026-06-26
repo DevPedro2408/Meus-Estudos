@@ -14,9 +14,11 @@
         }
 
         body {
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100dvh;
+            gap: 10px;
         }
 
         main {
@@ -60,9 +62,19 @@
         </div>
     </main>
 
-    <thead>
-        <th></th>
-    </thead>
+    <table>
+        <thead>
+            <tr>
+                <th id="numeracao"></th>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Categoria</th>
+                <th>Estoque</th>
+            </tr>
+        </thead>
+        <tbody id="resul">
+        </tbody>
+    </table>
 
     <script src="script.js"></script>
 </body>
