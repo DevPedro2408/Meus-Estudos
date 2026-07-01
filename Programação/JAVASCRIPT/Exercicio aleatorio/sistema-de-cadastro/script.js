@@ -41,12 +41,25 @@ function adicionarAoHtml() {
         buttonEstoque.innerHTML = "Verificar Estoque"
         verificarEstoque(elementos, buttonEstoque)
 
-        resul.appendChild(addElements)
+        resul.append(addElements, buttonEstoque)
     })
 }
 
 function verificarEstoque(ele, btnEstoque) {
-    btnEstoque.addEventListener("click", => {
-
+    btnEstoque.addEventListener("click", () => {
+        switch(true) {
+            case ele.estoque === 0:
+                console.log("Produto esgotado!")
+                break
+            case ele.estoque <= 5:
+                console.log("Estoque baixo")
+                break
+            case ele.estoque > 5 && ele.estoque <= 20:
+                console.log("Estoque normal")
+                break
+            case ele.estoque > 20:
+                console.log("Muito estoque")
+                break
+        }
     })
 }
