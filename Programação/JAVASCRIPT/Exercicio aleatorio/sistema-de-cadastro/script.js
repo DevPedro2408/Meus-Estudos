@@ -4,6 +4,7 @@ let categoria = document.getElementById("categoria")
 let quantidadeEstoque = document.getElementById("quantidadeEstoque")
 let inputs = document.querySelectorAll(".inputs")
 let resul = document.querySelector("#resul")
+let btnVerificar = document.getElementById("btnVerificar")
 
 let produtos = []
 
@@ -29,36 +30,41 @@ function adicionarAoHtml() {
 
     produtos.forEach((elementos, index) => {
         let addElements = document.createElement("tr")
+        let buttonEstoque = document.createElement("button")
+        buttonEstoque.innerHTML = "Verificar Estoque"
+
         addElements.innerHTML = `
         <td>${cont++}</td>
         <td>${elementos.nome}</td>
         <td>${elementos.preco}</td>
         <td>${elementos.categoria}</td>
         <td>${elementos.estoque}</td>
+        <td id="verificarEstoque"></td>
         `
 
-        let buttonEstoque = document.createElement("button")
-        buttonEstoque.innerHTML = "Verificar Estoque"
-        verificarEstoque(elementos, buttonEstoque)
+        let addUltimo = addElements.lastElementChild
+        addUltimo.appendChild(buttonEstoque)
 
-        resul.append(addElements, buttonEstoque)
+        verificarEstoque(elementos, buttonEstoque, addUltimo)
+
+        resul.appendChild(addElements)
     })
 }
 
-function verificarEstoque(ele, btnEstoque) {
+function verificarEstoque(ele, btnEstoque, adicionarUltimo) {
     btnEstoque.addEventListener("click", () => {
         switch(true) {
             case ele.estoque === 0:
-                console.log("Produto esgotado!")
+                adicionarUltimo.innerHTML = "Produto esgotado"
                 break
             case ele.estoque <= 5:
-                console.log("Estoque baixo")
+                adicionarUltimo.innerHTML = "Estoque baixo"
                 break
             case ele.estoque > 5 && ele.estoque <= 20:
-                console.log("Estoque normal")
+                adicionarUltimo.innerHTML = "Estoque normal"
                 break
             case ele.estoque > 20:
-                console.log("Muito estoque")
+                adicionarUltimo.innerHTML = "Muito estoque"
                 break
         }
     })
