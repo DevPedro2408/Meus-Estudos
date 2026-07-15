@@ -41,8 +41,8 @@
             
         }
 
-        th {
-            padding: 0 5px;
+        th, td {
+            padding: 3px 5px;
         }
 
         th, td {

@@ -56,15 +56,19 @@ function verificarEstoque(ele, btnEstoque, adicionarUltimo) {
         switch(true) {
             case ele.estoque === 0:
                 adicionarUltimo.innerHTML = "Produto esgotado"
+                adicionarUltimo.style.backgroundColor = "#fd1313"
                 break
             case ele.estoque <= 5:
                 adicionarUltimo.innerHTML = "Estoque baixo"
+                adicionarUltimo.style.backgroundColor = "#fd5113"
                 break
             case ele.estoque > 5 && ele.estoque <= 20:
                 adicionarUltimo.innerHTML = "Estoque normal"
+                adicionarUltimo.style.backgroundColor = "#fdda13"
                 break
             case ele.estoque > 20:
                 adicionarUltimo.innerHTML = "Muito estoque"
+                adicionarUltimo.style.backgroundColor = "#42fd13"
                 break
         }
     })
