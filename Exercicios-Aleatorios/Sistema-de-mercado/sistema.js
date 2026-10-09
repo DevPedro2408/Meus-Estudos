@@ -34,7 +34,38 @@ function buscarProduto() {
 }
 
 function adicionarProduto() {
-    
+    let produtoAdicionado = prompt("Adicionar produto: ")
+    let produtoQuantidade = Number(prompt("Quantidade de protudos: "))
+
+    let produtoExistente = produtos.some(ele => produtoAdicionado.toLocaleLowerCase() === ele.nome.toLocaleLowerCase())
+
+    if (produtoExistente === true) {
+        console.log(`Produto ${produtoAdicionado} já existe no estoque, adicione outro`)
+        adicionarProduto()
+    } else {
+        produtos.push({produto: produtoAdicionado, quantidade: produtoQuantidade})
+        console.log(`Produto ${produtoAdicionado} adicionado ao estoque!`)
+    }
+}
+
+function adicionarProdutoAoCarrinho() {
+
+}
+
+function removerProduto() {
+
+}
+
+function alterarQuantidade() {
+
+}
+
+function verCarrinho() {
+
+}
+
+function finalizarCompra() {
+
 }
 
 while (continuar === true) {
@@ -52,18 +83,21 @@ while (continuar === true) {
             adicionarProduto()
             break
         case 4:
-            removerProduto()
+            adicionarProdutoAoCarrinho()
             break
         case 5:
-            alterarQuantidade()
+            removerProduto()
             break
         case 6:
-            verCarrinho()
+            alterarQuantidade()
             break
         case 7:
-            FinalizarCompra()
+            verCarrinho()
             break
         case 8:
+            finalizarCompra()
+            break
+        case 9:
             continuar = false
             break
         default: 
