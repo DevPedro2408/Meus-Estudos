@@ -29,7 +29,7 @@ function buscarProduto() {
     if (indiceBusca === -1) {
         console.log("Produto não existe no estoque!!")
     } else {
-        console.log(`Produto: ${produtos[indiceBusca].nome}, Quantidade: ${produtos[indiceBusca].quantidade}`)
+        console.log(`Produto: ${produtos[indiceBusca].produto}, Quantidade: ${produtos[indiceBusca].quantidade}`)
     }
 }
 
@@ -37,7 +37,7 @@ function adicionarProduto() {
     let produtoAdicionado = prompt("Adicionar produto: ")
     let produtoQuantidade = Number(prompt("Quantidade de protudos: "))
 
-    let produtoExistente = produtos.some(ele => produtoAdicionado.toLocaleLowerCase() === ele.nome.toLocaleLowerCase())
+    let produtoExistente = produtos.some(ele => produtoAdicionado.toLocaleLowerCase() === ele.produto.toLocaleLowerCase())
 
     if (produtoExistente === true) {
         console.log(`Produto ${produtoAdicionado} já existe no estoque, adicione outro`)
@@ -49,7 +49,10 @@ function adicionarProduto() {
 }
 
 function adicionarProdutoAoCarrinho() {
+    let addAoCarrinho = prompt("Qual produto deseja adicionar ao carrinho: ")
+    let addAoCarrinhoQuantidade = Number(prompt("Quantidade de produtos: "))
 
+    let indiceProduto = produtos.findIndex(elements => addAoCarrinho 
 }
 
 function removerProduto() {
