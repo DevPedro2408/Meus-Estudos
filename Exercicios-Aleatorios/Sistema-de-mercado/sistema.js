@@ -52,7 +52,19 @@ function adicionarProdutoAoCarrinho() {
     let addAoCarrinho = prompt("Qual produto deseja adicionar ao carrinho: ")
     let addAoCarrinhoQuantidade = Number(prompt("Quantidade de produtos: "))
 
-    let indiceProduto = produtos.findIndex(elements => addAoCarrinho 
+    let indiceProduto = produtos.findIndex(elements => addAoCarrinho.toLocaleLowerCase() === elements.toLocaleLowerCase())
+
+    if (indiceProduto === -1) {
+        console.log(`Produto ${addAoCarrinho}, não encontrado no estoque`)
+    } else {
+        if (produtos[indiceProduto].quantidade < addAoCarrinhoQuantidade) {
+            console.log("Quantidade de produtos insuficiente")
+        } else {
+            console.log(`Produto ${addAoCarrinho}, adicionado ao carrinho!`)
+            
+        }
+
+    }
 }
 
 function removerProduto() {
