@@ -68,19 +68,55 @@ function adicionarProdutoAoCarrinho() {
 }
 
 function removerProduto() {
+    let produtoRemover = prompt("Qual produto deseja remover:")
 
+    let indiceRemovido = produtos.findIndex(elements => produtoRemover.toLocaleLowerCase() === elements.toLocaleLowerCase())
+
+    if (indiceRemovido === -1) {
+        console.log(`Produto ${produtoRemover} não encontrado`)
+    } else {
+        console.log(`${produtoRemover} Removido do estoque`)
+        produtos.splice(indiceRemovido, 1)
+    }
+}
+
+function removerProdutoDoCarrinho() {
+    let produtoRemover = prompt("Qual produto deseja remover do carrinho:")
+
+    let indiceRemovido = carrinho.findIndex(elements => produtoRemover.toLocaleLowerCase() === elements.toLocaleLowerCase())
+
+    if (indiceRemovido === -1) {
+        console.log(`Produto ${produtoRemover} não encontrado`) 
+    } else {
+        produtos.splice(indiceRemovido, 1)
+        console.log(`${produtoRemover} Removido do estoque`)
+    }
 }
 
 function alterarQuantidade() {
+    let produtoAlterado  = prompt("Qual produto deseja alterar a quantidade: ")
+    
+    let indiceQuantidade = produto.findIndex(elements => produtoAlterado.toLocaleLowerCase() === elements.toLocaleLowerCase())
+    
+    if (indiceRemovido === -1) {
+        console.log(`Produto ${produtoAlterado} não encontrado`) 
+    } else {
+        let quantidadeAlterada= prompt(Number("Nova quantidade: "))
 
+        produtos[indiceQuantidade].quantidade = quantidadeAlterada
+        console.log(`Quantidade do produto alterado com sucesso!!!`)
+    }
 }
 
 function verCarrinho() {
-
+    console.log(carrinho)
 }
 
 function finalizarCompra() {
-
+    console.log("Compras finalizadas!")
+    for (let i = 0;i < carrinho.length;i++) {
+        console.log(`${carrinho[i].nome} ${carrinho[i].quantidade}\n`)
+    }
 }
 
 while (continuar === true) {
@@ -104,15 +140,18 @@ while (continuar === true) {
             removerProduto()
             break
         case 6:
-            alterarQuantidade()
+            removerProdutoDoCarrinho()
             break
         case 7:
-            verCarrinho()
+            alterarQuantidade()
             break
         case 8:
-            finalizarCompra()
+            verCarrinho()
             break
         case 9:
+            finalizarCompra()
+            break
+        case 10:    
             continuar = false
             break
         default: 
