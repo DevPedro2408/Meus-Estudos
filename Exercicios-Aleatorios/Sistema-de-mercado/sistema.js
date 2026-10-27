@@ -8,23 +8,28 @@ let continuar = true
 function escolhas() {
     console.log("1 - Listar compras")
     console.log("2 - Buscar produto")
-    console.log("3 - Adicionar produto ao carrinho")
-    console.log("4 - Remover produto ao carrinho")
-    console.log("5 - Alterar quantidade")
-    console.log("6 - Ver carrinho")
-    console.log("7 - Finalizar compra")
-    console.log("8 - Sair")
+    console.log("3 - Adicionar produto")
+    console.log("4 - Adicionar produto ao carrinho")
+    console.log("5 - Remover produto")
+    console.log("6 - Remover produto do carrinho")
+    console.log("7 - Alterar quantidade")
+    console.log("8 - Ver carrinho")
+    console.log("9 - Finalizar compra")
+    console.log("10 - Sair")
 }
 
 function listarProdutos() {
-    produtos.forEach(lista => console.log(lista))
-    console.log("Deu certo")
+    if (produtos.length === 0) {
+        console.log("Estoque vazio!")
+    } else {
+        produtos.forEach(lista => console.log(lista))
+    }
 }
 
 function buscarProduto() {
     let produtoBuscado = prompt("Qual produto deseja buscar? ")
 
-    let indiceBusca = produtos.findIndex(elemento => produtoBuscado === elemento.produto)
+    let indiceBusca = produtos.findIndex(elemento => produtoBuscado.toLocaleLowerCase() === elemento.produto.toLocaleLowerCase())
 
     if (indiceBusca === -1) {
         console.log("Produto não existe no estoque!!")
@@ -50,27 +55,28 @@ function adicionarProduto() {
 
 function adicionarProdutoAoCarrinho() {
     let addAoCarrinho = prompt("Qual produto deseja adicionar ao carrinho: ")
-    let addAoCarrinhoQuantidade = Number(prompt("Quantidade de produtos: "))
-
-    let indiceProduto = produtos.findIndex(elements => addAoCarrinho.toLocaleLowerCase() === elements.toLocaleLowerCase())
-
+    
+    let indiceProduto = produtos.findIndex(elements => addAoCarrinho.toLocaleLowerCase() === elements.produto.toLocaleLowerCase())
+    
     if (indiceProduto === -1) {
         console.log(`Produto ${addAoCarrinho}, não encontrado no estoque`)
     } else {
+        let addAoCarrinhoQuantidade = Number(prompt("Quantidade de produtos: "))
+
         if (produtos[indiceProduto].quantidade < addAoCarrinhoQuantidade) {
             console.log("Quantidade de produtos insuficiente")
         } else {
             console.log(`Produto ${addAoCarrinho}, adicionado ao carrinho!`)
-            
+            produtos[indiceProduto].quantidade -= addAoCarrinhoQuantidade
+            carrinho.push({produtoCarrinho: addAoCarrinho, quantidadeCarrinho: addAoCarrinhoQuantidade})
         }
-
     }
 }
 
 function removerProduto() {
     let produtoRemover = prompt("Qual produto deseja remover:")
 
-    let indiceRemovido = produtos.findIndex(elements => produtoRemover.toLocaleLowerCase() === elements.toLocaleLowerCase())
+    let indiceRemovido = produtos.findIndex(elements => produtoRemover.toLocaleLowerCase() === elements.produto.toLocaleLowerCase())
 
     if (indiceRemovido === -1) {
         console.log(`Produto ${produtoRemover} não encontrado`)
@@ -83,25 +89,25 @@ function removerProduto() {
 function removerProdutoDoCarrinho() {
     let produtoRemover = prompt("Qual produto deseja remover do carrinho:")
 
-    let indiceRemovido = carrinho.findIndex(elements => produtoRemover.toLocaleLowerCase() === elements.toLocaleLowerCase())
+    let indiceRemovido = carrinho.findIndex(elements => produtoRemover.toLocaleLowerCase() === elements.produtoCarrinho.toLocaleLowerCase())
 
     if (indiceRemovido === -1) {
-        console.log(`Produto ${produtoRemover} não encontrado`) 
+        console.log(`Produto ${produtoRemover} não encontrado`)
     } else {
-        produtos.splice(indiceRemovido, 1)
-        console.log(`${produtoRemover} Removido do estoque`)
+        carrinho.splice(indiceRemovido, 1)
+        console.log(`${produtoRemover} removido do estoque`)
     }
 }
 
 function alterarQuantidade() {
     let produtoAlterado  = prompt("Qual produto deseja alterar a quantidade: ")
     
-    let indiceQuantidade = produto.findIndex(elements => produtoAlterado.toLocaleLowerCase() === elements.toLocaleLowerCase())
+    let indiceQuantidade = produtos.findIndex(elements => produtoAlterado.toLocaleLowerCase() === elements.produto.toLocaleLowerCase())
     
-    if (indiceRemovido === -1) {
+    if (indiceQuantidade === -1) {
         console.log(`Produto ${produtoAlterado} não encontrado`) 
     } else {
-        let quantidadeAlterada= prompt(Number("Nova quantidade: "))
+        let quantidadeAlterada = Number(prompt("Nova quantidade: "))
 
         produtos[indiceQuantidade].quantidade = quantidadeAlterada
         console.log(`Quantidade do produto alterado com sucesso!!!`)
@@ -115,8 +121,9 @@ function verCarrinho() {
 function finalizarCompra() {
     console.log("Compras finalizadas!")
     for (let i = 0;i < carrinho.length;i++) {
-        console.log(`${carrinho[i].nome} ${carrinho[i].quantidade}\n`)
+        console.log(`${carrinho[i].produtoCarrinho} ${carrinho[i].quantidadeCarrinho}\n`)
     }
+    continuar = false
 }
 
 while (continuar === true) {
