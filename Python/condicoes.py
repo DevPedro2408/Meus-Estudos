@@ -1,4 +1,4 @@
-idade = input("qual idade")
+idade = int(input("qual idade"))
 
 
 if idade < 18:
